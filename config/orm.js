@@ -7,6 +7,7 @@ function ORM(table) {
       const sql = `SELECT id, image_link, headword, description, datetime_completed, status_candidate, status_pending, status_completed FROM ??`;
       return new Promise(function (resolve, reject) {
         connection.query(sql, table, function (err, data) {
+          console.log(data);
           if (err) reject(err);
 
           // Push only images IDs that have not been transcribed into an array
