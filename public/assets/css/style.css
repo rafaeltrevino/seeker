@@ -1,0 +1,43 @@
+.main-logo {
+  width: 300px;
+}
+
+.navbar {
+  color: #00ADB5;
+}
+
+.candidate-image {
+  background-color: #EEEEEE;
+}
+
+.submit-btn {
+  background-color: #00ADB5;
+}
+
+.card {
+  margin: 10px;
+}
+
+.image-pending {
+  padding: 15px;
+  background-color: #ff2f90;
+}
+
+.image-completed {
+  padding: 15px;
+  background-color: #b58b00;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.create-update-form {
+  padding: 5px;
+  margin: 5px;
+  background: aqua;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}

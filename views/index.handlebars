@@ -1,0 +1,83 @@
+<nav class="border split-nav">
+  <div class="nav-brand">
+    <h3><a class="navbar" href="#">SEEker</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+    <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        <li><a class="navbar" href="#review">Review</a></li>
+        <li><a class="navbar" href="#saved">Saved Contributions</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="paper container">
+
+  <div class="row">
+    <div class="col-6 col">
+      <img class="no-border main-logo" src="https://i.ibb.co/QQ20hHV/logo-transparent.png" alt="SEEker logo"></img>
+
+      <p>Be a <strong>SEEker</strong>! Help us transcribe images from old Signed Exact English (SEE) dictionaries. Here's what to do:</p>
+      <ol>
+      <li>Type the headword(s) that appears in the image, usually in ALL CAPS.</li>
+      <li>Type all the other relevant text as it appears in the image in the description. You can ignore any text fragments surrounding the central image. (See <a href="#saved">Saved Contributions</a> for examples.)</li>
+      <li>Click <strong>Add Image</strong>.</li>
+      <li>Review your contributions below under <a href="#review">Review</a>. If you’re satisified with your contribution, click <strong>Save</strong>, otherwise, click <strong>Reject</strong> to send it back to the pool.</li>
+      </ol>
+      <p>And that’s it! Thanks for your help.</p>
+    </div>
+
+    <div class="col-6 col">
+      <h3>Work space</h3>
+      <form>
+        {{!-- Image --}}
+        {{#each images}}
+        {{#if status_candidate}}
+        <div id="idnum" data-id="{{id}}"></div>
+        <img id="candidate-image" class="candidate-image zoomIn animated" src="{{image_link}}" alt="candidate image"></img>
+        <br>
+        {{/if}}
+        {{/each}}
+
+        {{!-- Workspace --}}
+        <div class="form-group">
+          <label for="headword">Headword:</label>
+          <input class="input-block" type="text" id="headword" name="headword">
+          <br>
+          <label>Description:</label>
+          <textarea class="input-block" placeholder="Transcribe text here" id="description"></textarea>
+        </div>
+        <button id="submit-candidate" class="submit-btn" type="submit">Add Image</button>
+    </div>
+    </form>
+  </div>
+
+  <h3 id="review">Review</h3>
+
+  <div class="row">
+    {{#each images}}
+    {{#if status_pending}}
+    {{> images/image-block}}
+    {{/if}}
+    {{/each}}
+  </div>
+
+  <h3 id="saved">Saved contributions -- Thanks!</h3>
+  <div class="row flex-spaces">
+    {{#each images}}
+    {{#if status_completed}}
+    {{> images/image-block}}
+    {{/if}}
+    {{/each}}
+  </div>
+
+</div>

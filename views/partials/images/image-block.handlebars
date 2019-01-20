@@ -1,0 +1,20 @@
+<div id="{{id}}" class="card" style="width: 13rem;">
+	{{!-- Class changes for background color depending on status --}}
+	{{#if status_pending}}
+		<img class="image-bottom image-pending" src="{{image_link}}" alt="SEE sign for {{headword}}">
+	{{else}}
+		<img class="image-bottom image-completed" src="{{image_link}}" alt="SEE sign for {{headword}}">
+	{{/if}}
+
+	<div class="card-body">
+		<h6 class="card-subtitle">{{datetime_completed}}</h6>
+		<h4 class="card-title">{{headword}}</h4>
+		<p class="card-text">{{description}}</p>
+
+		{{#unless status_completed}}
+		<button class="change-status btn-small" data-id="{{id}}">SAVE</button>
+		<button class="reject btn-small" data-id="{{this.id}}">REJECT</button>
+		{{else}}
+		{{/unless}}
+	</div>
+</div>
