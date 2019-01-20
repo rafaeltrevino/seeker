@@ -9,12 +9,10 @@ if (process.env.JAWSDB_URL) {
     user: "root",
     password: "",
     database: "seeker_db"
-}
+  });
+};
 
-const 
-});
-
-connection.connect(function(err) {
+connection.connect(function (err) {
   if (err) {
     console.error(`error connecting: ${err.stack}`);
     return;
